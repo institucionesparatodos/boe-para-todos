@@ -1,0 +1,55 @@
+{
+  "id": "20261107-c1",
+  "institucion": "BOE",
+  "cuenta": "@elboeparatodos",
+  "fecha": "20261107",
+  "boe_numero": "278",
+  "estado": "Publicado en el BOE el 7 de noviembre de 2026",
+  "diapositivas": [
+    {
+      "tipo": "portada",
+      "titulo": "Huelga del 11 de noviembre: servicios mínimos",
+      "subtitulo": "Tres órdenes fijan qué debe seguir funcionando ese día.",
+      "estado": "Publicado en el BOE el 7 de noviembre de 2026"
+    },
+    {
+      "tipo": "contenido",
+      "encabezado": "En una frase",
+      "texto": "Tres órdenes fijan servicios mínimos en carburantes, electricidad e incendios durante la huelga del 11 de noviembre.",
+      "destacado": "11 de noviembre de 2026"
+    },
+    {
+      "tipo": "contenido",
+      "encabezado": "Carburantes y gas",
+      "texto": "Las empresas deben mantener operativas refinerías, redes de gas y almacenamientos. Se garantizan los pedidos urgentes de hospitales, bomberos, ambulancias y cuerpos de seguridad. El anexo II relaciona las estaciones de servicio incluidas.",
+      "destacado": "Estaciones de servicio"
+    },
+    {
+      "tipo": "contenido",
+      "encabezado": "Electricidad",
+      "texto": "Se mantiene la disponibilidad de centrales nucleares, hidráulicas, de bombeo y térmicas, y de los centros de control. Criterio del operador del sistema, Red Eléctrica, recogido en la orden.",
+      "destacado": "Suministro garantizado"
+    },
+    {
+      "tipo": "contenido",
+      "encabezado": "Incendios forestales",
+      "texto": "Los medios estatales de apoyo a comunidades deben mantener su operatividad durante la huelga convocada por CC. OO. y UGT. Se garantiza el 100 % del personal de guardia y de la sala del CCINIF.",
+      "destacado": "100 %"
+    },
+    {
+      "tipo": "contenido",
+      "encabezado": "¿Desde cuándo?",
+      "texto": "Los servicios mínimos se aplican durante la huelga del 11 de noviembre de 2026. La orden sobre incendios produce efectos el 7 de noviembre de 2026, día de su publicación en el BOE.",
+      "destacado": "11 de noviembre de 2026"
+    },
+    {
+      "tipo": "cierre",
+      "fuente": "Fuente: BOE núm. 278, de 7 de noviembre de 2026",
+      "referencias": [
+        "Orden TED/1179/2026",
+        "Orden TED/1180/2026",
+        "Orden TED/1181/2026"
+      ]
+    }
+  ]
+}
