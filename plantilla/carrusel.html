@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Plantilla de carrusel · INSTITUCIONES para todos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Plus+Jakarta+Sans:wght@800&display=block" rel="stylesheet">
+<style>
+  /* Paleta de la guía de estilo */
+  :root {
+    --petroleo: #1F4E5F;
+    --crema: #FAF6EE;
+    --tinta: #1C1C1C;
+    --melocoton: #F2A477;
+    --niebla: #DDE3E6;
+    --titulos: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+    --texto: 'Atkinson Hyperlegible', 'Helvetica Neue', Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #888; }
+
+  #lienzo {
+    width: 1080px;
+    height: 1350px;
+    padding: 80px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: var(--texto);
+    color: var(--tinta);
+    background: var(--crema);
+    position: relative;
+  }
+  #lienzo.oscuro { background: var(--petroleo); color: var(--crema); }
+
+  /* Cabecera: logo */
+  .cabecera { display: flex; align-items: center; gap: 20px; }
+  .logo-texto { display: flex; flex-direction: column; line-height: 1; }
+  .logo-inst { font-family: var(--titulos); font-weight: 800; font-size: 40px; letter-spacing: -0.5px; }
+  .logo-para { font-family: var(--texto); font-size: 28px; margin-top: 4px; }
+
+  /* Cuerpo */
+  .cuerpo { flex: 1; display: flex; flex-direction: column; justify-content: center; min-height: 0; }
+
+  /* Portada */
+  .titulo-portada {
+    font-family: var(--titulos); font-weight: 800;
+    font-size: 88px; line-height: 1.08; letter-spacing: -1px;
+  }
+  .subtitulo { font-size: 42px; line-height: 1.35; margin-top: 40px; opacity: 0.92; }
+  .estado {
+    display: inline-flex; align-items: center; gap: 16px;
+    align-self: flex-start;
+    background: var(--melocoton); color: var(--tinta);
+    font-weight: 700; font-size: 32px;
+    padding: 18px 28px; border-radius: 24px;
+    margin-bottom: 48px;
+  }
+
+  /* Diapositivas de contenido */
+  .encabezado {
+    font-family: var(--titulos); font-weight: 800;
+    font-size: 68px; line-height: 1.1; color: var(--petroleo);
+    letter-spacing: -0.5px;
+  }
+  .barra { width: 120px; height: 10px; border-radius: 5px; background: var(--melocoton); margin: 36px 0 44px; }
+  .texto { font-size: 46px; line-height: 1.42; }
+  .destacado {
+    align-self: flex-start;
+    margin-top: 48px;
+    background: var(--niebla); color: var(--petroleo);
+    font-weight: 700; font-size: 38px; line-height: 1.25;
+    padding: 22px 32px; border-radius: 24px;
+    border-left: 12px solid var(--melocoton);
+  }
+
+  /* Cierre */
+  .cierre-titulo { font-family: var(--titulos); font-weight: 800; font-size: 64px; line-height: 1.1; }
+  .fuente { font-size: 40px; line-height: 1.35; margin-top: 44px; font-weight: 700; }
+  .referencias { list-style: none; margin-top: 28px; }
+  .referencias li { font-size: 34px; line-height: 1.35; padding: 10px 0 10px 36px; position: relative; }
+  .referencias li::before { content: ''; position: absolute; left: 0; top: 28px; width: 14px; height: 14px; border-radius: 50%; background: var(--melocoton); }
+  .aviso-oficial {
+    margin-top: 56px; align-self: flex-start;
+    border: 3px solid var(--crema); border-radius: 24px;
+    font-size: 30px; font-weight: 700; padding: 16px 26px;
+  }
+
+  /* Pie */
+  .pie { display: flex; justify-content: space-between; align-items: center; font-size: 26px; padding-top: 24px; }
+  .pie .cuenta { font-weight: 700; }
+  .pie .pagina { font-weight: 700; }
+  .oscuro .pie { opacity: 0.9; }
+  .claro .pie { color: var(--petroleo); }
+</style>
+</head>
+<body>
+<div id="lienzo"></div>
+
+<script>
+const MESES = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const fechaCorta = (f) => f ? `${+f.slice(6,8)} ${MESES[+f.slice(4,6)-1].slice(0,3)} ${f.slice(0,4)}` : '';
+
+const esc = (s) => String(s ?? '')
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+// Logo: bocadillo petróleo con punto melocotón + texto
+function logo(datos, oscuro) {
+  const fondo = oscuro ? '#FAF6EE' : '#1F4E5F';
+  return `
+    <div class="cabecera">
+      <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+        <path d="M14 6h44a10 10 0 0 1 10 10v28a10 10 0 0 1-10 10H32l-14 12v-12h-4A10 10 0 0 1 4 44V16A10 10 0 0 1 14 6z" fill="${fondo}"/>
+        <circle cx="36" cy="30" r="9" fill="#F2A477"/>
+      </svg>
+      <div class="logo-texto">
+        <span class="logo-inst">${esc(datos.institucion)}</span>
+        <span class="logo-para">para todos</span>
+      </div>
+    </div>`;
+}
+
+function pie(datos, i, total) {
+  return `<div class="pie"><span class="cuenta">${esc(datos.cuenta)}</span><span class="pagina">${i + 1} / ${total}</span></div>`;
+}
+
+const ICONO_CALENDARIO = `<svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#1C1C1C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`;
+
+// Pinta la diapositiva i
+function pintar(datos, i) {
+  const d = datos.diapositivas[i];
+  const total = datos.diapositivas.length;
+  const lienzo = document.getElementById('lienzo');
+  const oscuro = d.tipo === 'portada' || d.tipo === 'cierre';
+  lienzo.className = oscuro ? 'oscuro' : 'claro';
+
+  let cuerpo = '';
+  if (d.tipo === 'portada') {
+    cuerpo = `
+      <div class="cuerpo">
+        ${d.estado ? `<div class="estado">${ICONO_CALENDARIO}<span>${esc(d.estado)}</span></div>` : ''}
+        <h1 class="titulo-portada ajustable" data-min="64">${esc(d.titulo)}</h1>
+        ${d.subtitulo ? `<p class="subtitulo ajustable" data-min="36">${esc(d.subtitulo)}</p>` : ''}
+      </div>`;
+  } else if (d.tipo === 'cierre') {
+    cuerpo = `
+      <div class="cuerpo">
+        <h2 class="cierre-titulo">Fuente oficial</h2>
+        <p class="fuente">${esc(d.fuente)}</p>
+        <ul class="referencias ajustable" data-min="26">${(d.referencias || []).map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
+        <div class="aviso-oficial">Divulgación independiente, no oficial</div>
+      </div>`;
+  } else {
+    cuerpo = `
+      <div class="cuerpo">
+        <h2 class="encabezado ajustable" data-min="56">${esc(d.encabezado)}</h2>
+        <div class="barra"></div>
+        <p class="texto ajustable" data-min="36">${esc(d.texto)}</p>
+        ${d.destacado ? `<div class="destacado">${esc(d.destacado)}</div>` : ''}
+      </div>`;
+  }
+
+  lienzo.innerHTML = logo(datos, oscuro) + cuerpo + pie(datos, i, total);
+  ajustar();
+}
+
+// Si el contenido no cabe, reduce el tamaño de letra hasta el mínimo de la guía
+function ajustar() {
+  const cuerpo = document.querySelector('#lienzo .cuerpo');
+  const ajustables = [...document.querySelectorAll('#lienzo .ajustable')];
+  let vueltas = 0;
+  while (cuerpo.scrollHeight > cuerpo.clientHeight && vueltas < 40) {
+    let cambiado = false;
+    for (const el of ajustables) {
+      const actual = parseFloat(getComputedStyle(el).fontSize);
+      const min = parseFloat(el.dataset.min || '36');
+      if (actual > min) { el.style.fontSize = Math.max(min, actual - 2) + 'px'; cambiado = true; }
+    }
+    if (!cambiado) break;
+    vueltas++;
+  }
+  // Marca si aun así no cabe (el script de render lo avisa)
+  document.body.dataset.desborda = cuerpo.scrollHeight > cuerpo.clientHeight ? 'si' : 'no';
+}
+
+window.pintar = pintar;
+</script>
+</body>
+</html>
