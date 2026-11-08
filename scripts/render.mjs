@@ -61,7 +61,24 @@ for (const lote of lotes) {
       imagenes.push(nombre);
     }
 
-    const listo = { id: datos.id, imagenes, avisos, generado: new Date().toISOString() };
+    // Hoja de vista previa con todas las diapositivas (para la aprobación por Telegram)
+    const hoja = await navegador.newPage({ viewport: { width: 2200, height: 600 }, deviceScaleFactor: 1 });
+    const miniaturas = imagenes
+      .map((n) => `<img src="data:image/png;base64,${fs.readFileSync(path.join(carpeta, n)).toString('base64')}">`)
+      .join('');
+    await hoja.setContent(
+      `<html><body style="margin:0;background:#DDE3E6">
+        <div id="hoja" style="display:grid;grid-template-columns:repeat(4,520px);gap:20px;padding:20px;width:max-content">
+          ${miniaturas}
+        </div>
+        <style>img{width:520px;height:650px;display:block;border-radius:12px}</style>
+      </body></html>`,
+      { waitUntil: 'load' }
+    );
+    await hoja.locator('#hoja').screenshot({ path: path.join(carpeta, 'hoja.jpg'), type: 'jpeg', quality: 85 });
+    await hoja.close();
+
+    const listo = { id: datos.id, imagenes, hoja: 'hoja.jpg', avisos, generado: new Date().toISOString() };
     fs.writeFileSync(path.join(carpeta, 'listo.json'), JSON.stringify(listo, null, 2));
     resumen.carruseles.push(listo);
     console.log(`${datos.id}: ${imagenes.length} imágenes${avisos.length ? ' · ' + avisos.join(' ') : ''}`);
