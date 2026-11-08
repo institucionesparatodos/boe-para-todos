@@ -1,4 +1,5 @@
-// Genera los PNG de cada carrusel a partir de los JSON de la carpeta "datos".
+// Genera los PNG de los carruseles a partir de los JSON de la carpeta "datos".
+// Cada JSON puede ser un lote (varios carruseles + aviso a n8n) o un carrusel suelto.
 // Solo procesa los carruseles que todavía no tienen imágenes en "docs/c/<id>/".
 import { chromium } from 'playwright';
 import fs from 'node:fs';
@@ -9,15 +10,21 @@ const RAIZ = process.cwd();
 const DATOS = path.join(RAIZ, 'datos');
 const SALIDA = path.join(RAIZ, 'docs', 'c');
 const PLANTILLA = pathToFileURL(path.join(RAIZ, 'plantilla', 'carrusel.html')).href;
+const RESULTADO = path.join(RAIZ, 'resultado-lotes.json'); // lo lee avisar.mjs (no se guarda en el repositorio)
 
-const pendientes = fs
+const yaGenerado = (id) => fs.existsSync(path.join(SALIDA, id, 'listo.json'));
+
+// Leer todos los JSON y normalizarlos a lotes
+const lotes = fs
   .readdirSync(DATOS)
   .filter((f) => f.endsWith('.json'))
   .map((f) => JSON.parse(fs.readFileSync(path.join(DATOS, f), 'utf8')))
-  .filter((d) => !fs.existsSync(path.join(SALIDA, d.id, 'listo.json')));
+  .map((j) => (Array.isArray(j.carruseles) ? j : { lote_id: j.id, carruseles: [j] }))
+  .filter((lote) => lote.carruseles.some((c) => !yaGenerado(c.id)));
 
-if (pendientes.length === 0) {
+if (lotes.length === 0) {
   console.log('No hay carruseles pendientes.');
+  fs.writeFileSync(RESULTADO, '[]');
   process.exit(0);
 }
 
@@ -26,29 +33,42 @@ const pagina = await navegador.newPage({ viewport: { width: 1080, height: 1350 }
 await pagina.goto(PLANTILLA, { waitUntil: 'networkidle' });
 await pagina.evaluate(() => document.fonts.ready);
 
-for (const datos of pendientes) {
-  const carpeta = path.join(SALIDA, datos.id);
-  fs.mkdirSync(carpeta, { recursive: true });
-  const imagenes = [];
-  const avisos = [];
+const resultados = [];
 
-  for (let i = 0; i < datos.diapositivas.length; i++) {
-    await pagina.evaluate(([d, n]) => window.pintar(d, n), [datos, i]);
-    await pagina.evaluate(() => document.fonts.ready);
-    const desborda = await pagina.evaluate(() => document.body.dataset.desborda);
-    if (desborda === 'si') avisos.push(`La diapositiva ${i + 1} no cabe ni con la letra mínima.`);
+for (const lote of lotes) {
+  const resumen = { lote_id: lote.lote_id, resume_url: lote.resume_url || null, carruseles: [] };
 
-    const nombre = `${String(i + 1).padStart(2, '0')}.png`;
-    await pagina.locator('#lienzo').screenshot({ path: path.join(carpeta, nombre) });
-    imagenes.push(nombre);
+  for (const datos of lote.carruseles) {
+    const carpeta = path.join(SALIDA, datos.id);
+
+    if (yaGenerado(datos.id)) {
+      resumen.carruseles.push(JSON.parse(fs.readFileSync(path.join(carpeta, 'listo.json'), 'utf8')));
+      continue;
+    }
+
+    fs.mkdirSync(carpeta, { recursive: true });
+    const imagenes = [];
+    const avisos = [];
+
+    for (let i = 0; i < datos.diapositivas.length; i++) {
+      await pagina.evaluate(([d, n]) => window.pintar(d, n), [datos, i]);
+      await pagina.evaluate(() => document.fonts.ready);
+      const desborda = await pagina.evaluate(() => document.body.dataset.desborda);
+      if (desborda === 'si') avisos.push(`La diapositiva ${i + 1} no cabe ni con la letra mínima.`);
+
+      const nombre = `${String(i + 1).padStart(2, '0')}.png`;
+      await pagina.locator('#lienzo').screenshot({ path: path.join(carpeta, nombre) });
+      imagenes.push(nombre);
+    }
+
+    const listo = { id: datos.id, imagenes, avisos, generado: new Date().toISOString() };
+    fs.writeFileSync(path.join(carpeta, 'listo.json'), JSON.stringify(listo, null, 2));
+    resumen.carruseles.push(listo);
+    console.log(`${datos.id}: ${imagenes.length} imágenes${avisos.length ? ' · ' + avisos.join(' ') : ''}`);
   }
 
-  // Marca de "terminado": n8n la consulta para saber que las imágenes ya están publicadas
-  fs.writeFileSync(
-    path.join(carpeta, 'listo.json'),
-    JSON.stringify({ id: datos.id, imagenes, avisos, generado: new Date().toISOString() }, null, 2)
-  );
-  console.log(`${datos.id}: ${imagenes.length} imágenes${avisos.length ? ' · ' + avisos.join(' ') : ''}`);
+  resultados.push(resumen);
 }
 
 await navegador.close();
+fs.writeFileSync(RESULTADO, JSON.stringify(resultados, null, 2));
