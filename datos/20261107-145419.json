@@ -1,0 +1,120 @@
+{
+  "lote_id": "20261107-145419",
+  "resume_url": "https://jordiborbon.app.n8n.cloud/webhook-waiting/37?signature=9828b36a1b900334c193e2e922eca5f806543a43d66ad0f0c8d2331bd490e077",
+  "carruseles": [
+    {
+      "id": "20261107-145419-c1",
+      "institucion": "BOE",
+      "cuenta": "@elboeparatodos",
+      "fecha": "20261107",
+      "boe_numero": "278",
+      "estado": "Publicado en el BOE el 7 de noviembre de 2026",
+      "diapositivas": [
+        {
+          "tipo": "portada",
+          "titulo": "Huelga del 11 de noviembre: servicios mínimos",
+          "subtitulo": "Tres órdenes fijan qué debe seguir funcionando ese día.",
+          "estado": "Publicado en el BOE el 7 de noviembre de 2026"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "En una frase",
+          "texto": "Tres órdenes fijan servicios mínimos en carburantes, electricidad e incendios durante la huelga del 11 de noviembre.",
+          "destacado": "11 de noviembre de 2026"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Carburantes y gas",
+          "texto": "Las empresas deben mantener operativas refinerías, redes de gas y almacenamientos. Se garantizan los pedidos urgentes de hospitales, bomberos, ambulancias y cuerpos de seguridad. El anexo II relaciona las estaciones de servicio incluidas.",
+          "destacado": "Estaciones de servicio"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Electricidad",
+          "texto": "Se mantiene la disponibilidad de centrales nucleares, hidráulicas, de bombeo y térmicas, y de los centros de control. Criterio del operador del sistema, Red Eléctrica, recogido en la orden.",
+          "destacado": "Suministro garantizado"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Incendios forestales",
+          "texto": "Los medios estatales de apoyo a comunidades deben mantener su operatividad durante la huelga convocada por CC. OO. y UGT. Se garantiza el 100 % del personal de guardia y de la sala del CCINIF.",
+          "destacado": "100 %"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Desde cuándo?",
+          "texto": "Los servicios mínimos se aplican durante la huelga del 11 de noviembre de 2026. La orden sobre incendios produce efectos el 7 de noviembre de 2026, día de su publicación en el BOE.",
+          "destacado": "11 de noviembre de 2026"
+        },
+        {
+          "tipo": "cierre",
+          "fuente": "Fuente: BOE núm. 278, de 7 de noviembre de 2026",
+          "referencias": [
+            "Orden TED/1179/2026",
+            "Orden TED/1180/2026",
+            "Orden TED/1181/2026"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20261107-145419-c2",
+      "institucion": "BOE",
+      "cuenta": "@elboeparatodos",
+      "fecha": "20261107",
+      "boe_numero": "278",
+      "estado": "En vigor desde el 8 de noviembre de 2026",
+      "diapositivas": [
+        {
+          "tipo": "portada",
+          "titulo": "Cambiar la caldera por bomba de calor: nuevos coeficientes multiplicadores",
+          "subtitulo": "Qué fija la resolución sobre los certificados de ahorro energético en viviendas.",
+          "estado": "En vigor desde el 8 de noviembre de 2026"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "En una frase",
+          "texto": "Una resolución fija coeficientes que multiplican el ahorro certificado cuando sustituyes una caldera por una bomba de calor hidrónica en una vivienda.",
+          "destacado": "De 2 a 4 veces"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Qué cambia?",
+          "texto": "Los certificados de ahorro energético (CAE) acreditan el ahorro de energía de una reforma. Según el tipo de vivienda, el ahorro se multiplica por 2, 2,5, 3 o 4. Con más certificados, la actuación puede resultar más rentable.",
+          "destacado": "x2 · x2,5 · x3 · x4"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Coeficiente según vivienda",
+          "texto": "Edificio unifamiliar: 2. Piso o edificio con sistema individual: 2,5. Edificio centralizado: 3. Individual que pasa a centralizado: 4. Con consumidores vulnerables acreditados, se multiplica por 1,5 (en alquiler, mantenido dos años).",
+          "destacado": "x1,5 si hay consumidores vulnerables"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿A quién afecta?",
+          "texto": "A propietarios de viviendas y comunidades de propietarios que cambien una caldera de combustible fósil por una bomba de calor hidrónica (cuyo circuito secundario es agua o un fluido con base de agua).",
+          "destacado": "Bomba de calor hidrónica"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Requisitos",
+          "texto": "Hay que usar las fichas estandarizadas de la resolución y aportar la documentación que piden. En viviendas unifamiliares y pisos, la vivienda debe ser habitual. El cupo para 2027 es limitado y se asigna por orden temporal.",
+          "destacado": "Cupo limitado"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Desde cuándo?",
+          "texto": "Actuaciones: 22 de marzo de 2026 a 30 de noviembre de 2027 (31 de diciembre en comunidades). Solicitudes: 15 de enero a 31 de diciembre de 2027. Comunidades: hasta 28 de febrero de 2028.",
+          "destacado": "15 de enero de 2027"
+        },
+        {
+          "tipo": "cierre",
+          "fuente": "Fuente: BOE núm. 278, de 7 de noviembre de 2026",
+          "referencias": [
+            "Resolución de 3 de noviembre de 2026, de la Dirección General de Planificación y Coordinación Energética (BOE-A-2026-23367)"
+          ]
+        }
+      ]
+    }
+  ]
+}
