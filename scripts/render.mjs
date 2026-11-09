@@ -1,4 +1,4 @@
-// Genera los PNG de los carruseles a partir de los JSON de la carpeta "datos".
+// Genera las imágenes de los carruseles a partir de los JSON de la carpeta "datos".
 // Cada JSON puede ser un lote (varios carruseles + aviso a n8n) o un carrusel suelto.
 // Solo procesa los carruseles que todavía no tienen imágenes en "docs/c/<id>/".
 import { chromium } from 'playwright';
@@ -56,15 +56,16 @@ for (const lote of lotes) {
       const desborda = await pagina.evaluate(() => document.body.dataset.desborda);
       if (desborda === 'si') avisos.push(`La diapositiva ${i + 1} no cabe ni con la letra mínima.`);
 
-      const nombre = `${String(i + 1).padStart(2, '0')}.png`;
-      await pagina.locator('#lienzo').screenshot({ path: path.join(carpeta, nombre) });
+      // Instagram solo acepta JPEG en la publicación por API
+      const nombre = `${String(i + 1).padStart(2, '0')}.jpg`;
+      await pagina.locator('#lienzo').screenshot({ path: path.join(carpeta, nombre), type: 'jpeg', quality: 92 });
       imagenes.push(nombre);
     }
 
     // Hoja de vista previa con todas las diapositivas (para la aprobación por Telegram)
     const hoja = await navegador.newPage({ viewport: { width: 2200, height: 600 }, deviceScaleFactor: 1 });
     const miniaturas = imagenes
-      .map((n) => `<img src="data:image/png;base64,${fs.readFileSync(path.join(carpeta, n)).toString('base64')}">`)
+      .map((n) => `<img src="data:image/jpeg;base64,${fs.readFileSync(path.join(carpeta, n)).toString('base64')}">`)
       .join('');
     await hoja.setContent(
       `<html><body style="margin:0;background:#DDE3E6">
