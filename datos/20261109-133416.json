@@ -1,0 +1,57 @@
+{
+  "lote_id": "20261109-133416",
+  "resume_url": "https://jordiborbon.app.n8n.cloud/webhook-waiting/42?signature=955fbcab7b3fd7d2fea9f5d27f8221aadf78c556c3f366b3f97521264d618e24",
+  "carruseles": [
+    {
+      "id": "20261109-133416-c3",
+      "institucion": "BOE",
+      "cuenta": "@elboeparatodos",
+      "fecha": "20261109",
+      "boe_numero": "279",
+      "estado": "Publicado en el BOE el 9 de noviembre de 2026",
+      "diapositivas": [
+        {
+          "tipo": "portada",
+          "titulo": "Enfermeras de Ceuta y Melilla: se abre el plazo de acreditación",
+          "subtitulo": "Un plazo de veinte días hábiles para solicitar la acreditación.",
+          "estado": "Publicado en el BOE el 9 de noviembre de 2026"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "En una frase",
+          "texto": "El Instituto Nacional de Gestión Sanitaria abre un plazo para que enfermeros y enfermeras de Ceuta y Melilla soliciten acreditarse para indicar y dispensar medicamentos.",
+          "destacado": "20 días hábiles"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Qué cambia?",
+          "texto": "Se abre el plazo para pedir la acreditación. Esta permite indicar, usar y autorizar la dispensación de medicamentos y productos sanitarios de uso humano. La resolución solo fija el plazo; el procedimiento se regula en otra norma de 2021."
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿A quién afecta?",
+          "texto": "A los enfermeros y enfermeras del ámbito de las ciudades de Ceuta y Melilla. Si necesitas medicamentos, la acreditación afecta a qué profesionales pueden indicarlos y autorizar su dispensación."
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Desde cuándo?",
+          "texto": "El plazo es de veinte días hábiles, a contar desde el día siguiente a la publicación en el BOE. Las solicitudes fuera de plazo se acumulan con las presentadas el año siguiente.",
+          "destacado": "20 días hábiles"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Orden de ayudas Luisa de Medrano",
+          "texto": "La Orden CNU/1193/2026 modifica las bases de las ayudas Luisa de Medrano, un programa de movilidad para estudiantes universitarios. El texto recibido solo indica que afecta al artículo 17 de la Orden CNU/880/2026."
+        },
+        {
+          "tipo": "cierre",
+          "fuente": "Fuente: BOE núm. 279, de 9 de noviembre de 2026",
+          "referencias": [
+            "Orden CNU/1193/2026, de 6 de noviembre",
+            "Resolución de 16 de octubre de 2026, del Instituto Nacional de Gestión Sanitaria"
+          ]
+        }
+      ]
+    }
+  ]
+}
