@@ -1,0 +1,73 @@
+{
+  "lote_id": "20261117-121601",
+  "resume_url": "https://jordiborbon.app.n8n.cloud/webhook-waiting/111?signature=ee27cb87f878330ab5056abdc4b5e04ea729406e791c9d62c59531d18d4160ad",
+  "carruseles": [
+    {
+      "id": "20261117-121601-c2",
+      "numero_carrusel": 2,
+      "institucion": "BOE",
+      "cuenta": "@elboeparatodos",
+      "fecha": "20261117",
+      "boe_numero": "286",
+      "estado": "Publicado en el BOE el 17 de noviembre de 2026",
+      "diapositivas": [
+        {
+          "tipo": "portada",
+          "titulo": "Ayudas Luisa de Medrano: pendiente de verificar",
+          "subtitulo": "Carrusel no publicable hasta verificar la convocatoria en el BOE.",
+          "estado": "Publicado en el BOE el 17 de noviembre de 2026"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "En una frase",
+          "texto": "Este carrusel no puede publicarse: sus datos no se han podido verificar con la fuente disponible.",
+          "destacado": "Pendiente de verificación"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Qué cambia?",
+          "texto": "No se puede confirmar qué cambia con la fuente disponible, que recoge leyes catalanas y no una convocatoria de ayudas.",
+          "destacado": "Sin verificar"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿A quién afecta?",
+          "texto": "El colectivo y las condiciones no pueden confirmarse hasta revisar el texto oficial de la convocatoria.",
+          "destacado": "Sin verificar"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Requisitos",
+          "texto": "No se incluyen requisitos porque no figuran en la fuente. Consulta el extracto oficial cuando esté verificado.",
+          "destacado": "Pendiente"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "Cuánto",
+          "texto": "No se indican cuantías porque no figuran en la fuente disponible. Se revisarán con el texto oficial.",
+          "destacado": "Pendiente"
+        },
+        {
+          "tipo": "contenido",
+          "encabezado": "¿Desde cuándo?",
+          "texto": "La fecha de publicación en el BOE núm. 286 es el 17 de noviembre de 2026. El plazo de solicitud no está verificado.",
+          "destacado": "Plazo sin verificar"
+        },
+        {
+          "tipo": "cierre",
+          "fuente": "Fuente: BOE núm. 286, de 17 de noviembre de 2026",
+          "referencias": []
+        }
+      ],
+      "titulo": "Ayudas Luisa de Medrano: pendiente de verificar",
+      "pie_de_foto": "Carrusel pendiente de verificación: la fuente disponible no recoge la convocatoria de ayudas Luisa de Medrano.\nFuente: BOE núm. 286, de 17 de noviembre de 2026\nDivulgación independiente, no oficial.",
+      "hashtags": [
+        "#BOEparaTodos",
+        "#BecasUniversitarias",
+        "#SICUE",
+        "#Universidad",
+        "#Movilidad"
+      ]
+    }
+  ]
+}
